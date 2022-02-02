@@ -1,0 +1,30 @@
+code:
+
+class Solution 
+{
+public:
+	int myAtoi(string s) 
+    {
+		long long i=0,n=s.size(),ans=0,t=2147483647;
+		char sign='+';
+		while(s[i]==' ')i++;
+		if(s[i]=='-' || s[i]=='+')
+        {
+			sign=s[i];
+			i++;
+		}
+		while(i<n && s[i]<='9' && s[i]>='0')
+        {
+			if(ans*10+s[i]-'0'>t)
+            {
+				if(sign=='-')
+					return -t-1;
+				return t;
+			}
+			ans=ans*10 + s[i]-'0';
+			i++;
+		}
+		if(sign=='-')return -ans;
+		return ans;
+	}
+};

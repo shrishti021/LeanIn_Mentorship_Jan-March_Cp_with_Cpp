@@ -1,0 +1,20 @@
+//code
+
+class Solution {
+public:
+    vector<int>stack;
+    void inorder(TreeNode*root)
+    {
+        if(root==nullptr)
+            return;
+        inorder(root->left);
+        stack.push_back(root->val);
+        inorder(root->right);
+    }
+    vector<int> inorderTraversal(TreeNode* root) {
+        if(root==nullptr)
+            return stack;
+        inorder(root);
+        return stack;
+    }
+};

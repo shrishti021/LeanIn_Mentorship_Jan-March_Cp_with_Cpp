@@ -1,0 +1,12 @@
+//code
+
+class Solution {
+public:
+   int sumOfLeftLeaves(TreeNode* root) {
+	if(root==nullptr) return 0;
+	if(root->left and root->left->left==nullptr and root->left->right==nullptr)
+			return sumOfLeftLeaves(root->right)+root->left->val;
+	return(sumOfLeftLeaves(root->left)+sumOfLeftLeaves(root->right));
+}
+};
+
